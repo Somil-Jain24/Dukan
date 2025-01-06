@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="flex">
+        <h1>Your Cart</h1>
+    </header>
+    <main class="cart-container">
+        <h2>Products in Cart</h2>
+        <div id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div id="totalPrice">
+            <!-- Total price will be dynamically added here -->
+        </div>
+        <button id="buyNowBtn" class="buy-now">Buy Now</button>
+    </main>
+    <script>
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cartItems');
+        const totalPriceContainer = document.getElementById('totalPrice');
+        let totalPrice = 0;
+
+        if (cartItems.length > 0) {
+            cartItems.forEach(item => {
+                if (item.name && item.price && item.quantity) {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div>
+                            <p><strong>Product:</strong> ${item.name}</p>
+                            <p><strong>Price:</strong> ${item.price}</p>
+                            <p><strong>Quantity:</strong> ${item.quantity}</p>
+                        </div>
+                        <button onclick="removeFromCart('${item.name}')">Remove</button>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                    totalPrice += parseFloat(item.price.replace('₹', '')) * item.quantity;
+                }
+            });
+            totalPriceContainer.innerHTML = `<h3>Total Price: ₹${totalPrice.toFixed(2)}</h3>`;
+        } else {
+            cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        }
+
+        function removeFromCart(itemName) {
+            const index = cartItems.findIndex(item => item.name === itemName);
+            if (index > -1) {
+                cartItems.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                location.reload();
+            }
+        }
+
+        document.getElementById('buyNowBtn').addEventListener('click', () => {
+            if (cartItems.length > 0) {
+                alert('Proceeding to checkout...');
+                // Implement checkout logic here
+            } else {
+                alert('Your cart is empty.');
+            }
+        });
+    </script>
+</body>
+</html>

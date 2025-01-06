@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    
+}
+.flex{
+    display: flex;
+    
+}
+.center{
+    justify-content: center;
+    align-items: center;
+}
+.orange{
+    color: #fe9126;
+}

@@ -1,0 +1,75 @@
+/* General Page Layout */
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: #fe9126;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: 2rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 4rem); /* Full height minus header */
+    background: #f5f5f5;
+}
+
+/* Form Styles */
+form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    font-family: "Raleway", sans-serif;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #fe9126;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #d9781b;
+}
+
+/* About Us Specific */
+main p {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    color: #333;
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
